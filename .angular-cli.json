@@ -5,7 +5,7 @@
   },
   "apps": [
     {
-      "root": "src",
+      "root": "",
       "outDir": "dist",
       "assets": [
         "assets",
@@ -15,13 +15,14 @@
       "main": "app/main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
+      "tsconfig": "tsconfig.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "node_modules/toastr/build/toastr.min.css"
       ],
-      "scripts": [],
+      "scripts": ["node_modules/toastr/build/toastr.min.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
