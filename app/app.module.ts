@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { CreateEventComponent } from './events/create-event.component'
 import { Error404Component } from './errors/404.component'
 import { EventRouteActivator} from './events/event-details/event-route-activator.service'
+import { EventsListResolver } from './events/event-list-resolver.service'
 @NgModule({
     imports: [
         BrowserModule,
@@ -32,7 +33,8 @@ import { EventRouteActivator} from './events/event-details/event-route-activator
         EventRouteActivator,
         {   provide: 'canDeactivateCreateEvent',
             useValue: checkDirtyState
-        }
+        },
+        EventsListResolver
     ]
 })
 export class AppModule {}
