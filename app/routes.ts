@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Error404Component } from './errors/404.component';
+import { UserModule } from './user/user.module'
 import {
     EventsListResolver,
     EventRouteActivator,
@@ -25,6 +26,6 @@ export const appRoutes: Routes = [
         path:'', redirectTo: '/events', pathMatch: 'full'
     },
     {   path: 'user', 
-        loadChildren: './user/user.module#UserModule'
+        loadChildren: () => UserModule
     }
 ]
