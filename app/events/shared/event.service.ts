@@ -16,6 +16,14 @@ export class EventService {
     getEvent(id:number):IEvent{
       return EVENTS.find(event => event.id === id);
     }
+
+    saveEvent(event: IEvent){
+      let count : number =  EVENTS.length;
+      event.id = count + 1;
+      event.sessions = [];
+      EVENTS.push(event);
+    }
+
 }
 
 const EVENTS:IEvent[] =  [
