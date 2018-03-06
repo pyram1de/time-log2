@@ -34,9 +34,11 @@
               <option value="Advanced">Advanced</option>
             </select>
           </div>
-          <div class="form-group">
+          <div class="form-group" [ngClass]="{'error': abstract.invalid && abstract.dirty }">
             <label for="abstract">Abstract:</label>
-            <em *ngIf="abstract.invalid && abstract.dirty">Required</em>
+            <em *ngIf="abstract.invalid && abstract.dirty && abstract?.errors.required">Required</em>
+            <em *ngIf="abstract.invalid && abstract.dirty && abstract?.errors.maxLength">Cannot exceed 400 characters</em>
+            <em *ngIf="abstract.invalid && abstract.dirty && abstract?.errors.restrictedWords">you have used some restricted words ({{abstract.errors.restrictedWords}})</em>
             <textarea id="abstract" rows=3 class="form-control" formControlName="abstract" placeholder="abstract..."></textarea>
           </div>
           <button type="submit" [disabled]="newSessionForm.invalid" class="btn btn-primary">Save</button>
