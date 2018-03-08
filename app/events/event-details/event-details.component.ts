@@ -16,6 +16,8 @@ import { IEvent } from '..';
 export class EventDetailsComponent implements OnInit {
     event: IEvent
     addMode: boolean = false;
+    filterBy: string = "all";
+    
     constructor(private eventService: EventService, private route: ActivatedRoute){
 
     }
@@ -28,8 +30,6 @@ export class EventDetailsComponent implements OnInit {
     }
 
     saveNewSession(session){
-       // console.log('session', session);
-        //console.log('current sessions', this.event.sessions);
         const nextId = Math.max.apply(null, this.event.sessions.map(s=>s.id));
         session.id = nextId;
         this.event.sessions.push(session);
