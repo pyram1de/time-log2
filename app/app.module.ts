@@ -14,10 +14,12 @@ import {
     EventsListResolver,
     EventsListComponent,
     EventThumbnailComponent,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
 } from './events/index';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { CollapsibleWellComponent } from './common/collapsible-well.component'
 
 @NgModule({
     imports: [
@@ -33,7 +35,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
         EventDetailsComponent,
         CreateEventComponent,
         Error404Component,
-        CreateSessionComponent
+        CreateSessionComponent,
+        SessionListComponent,
+        CollapsibleWellComponent
     ],
     bootstrap: [EventsAppComponent],
     providers: [
