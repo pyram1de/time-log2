@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core'
+// OpaqueToken is now deprecated
+import { InjectionToken  } from '@angular/core'
 
-declare let toastr:any
+export let TOASTR_TOKEN = new InjectionToken('toastr');
 
-@Injectable()
-export class ToastrService {
-    success(message: string, title?: string){
-        toastr.success(message, title);
-    }
+export interface Toastr {
+    success (msg: string, title?: string): void;
+    info (msg: string, title?: string): void;
+    warning (msg: string, title?: string): void;
+    error (msg: string, title?: string): void;
 }
