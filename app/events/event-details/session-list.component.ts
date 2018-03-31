@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { ISession, VoterService } from '..';
+import { ISession, VoterService } from '../shared/index';
 import { AuthService } from '../../user/auth.service';
 
 @Component({
