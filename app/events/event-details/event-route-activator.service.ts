@@ -5,7 +5,7 @@ import { EventService } from '../shared/event.service'
 @Injectable() 
 export class EventRouteActivator implements CanActivate {
     constructor(private eventService: EventService, private router: Router){
-
+            // no longer useed
     }
 
     canActivate(route: ActivatedRouteSnapshot) : boolean {

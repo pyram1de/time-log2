@@ -6,11 +6,13 @@ import {appRoutes} from './routes'
 import { RouterModule } from '@angular/router';
 import { Error404Component } from './errors/404.component'
 import { EventsAppComponent } from './events-app.component'
+import { HttpModule } from '@angular/http'
 import {
     EventService,
     EventDetailsComponent,
     CreateEventComponent,
     EventRouteActivator,
+    EventResolver,
     EventsListResolver,
     EventsListComponent,
     EventThumbnailComponent,
@@ -33,7 +35,8 @@ declare let jQuery : Object
         BrowserModule,
         RouterModule.forRoot(appRoutes),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpModule
     ],
     declarations: [EventsAppComponent,
         EventsListComponent,
@@ -69,6 +72,7 @@ declare let jQuery : Object
         {   provide: 'canDeactivateCreateEvent',
             useValue: checkDirtyState
         },
+        EventResolver,
         EventsListResolver,
         AuthService,
         VoterService
