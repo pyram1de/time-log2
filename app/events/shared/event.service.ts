@@ -36,33 +36,12 @@ export class EventService {
       ).catch(this.handleError);
     }
 
-    updateEvent(event: IEvent){
-      let index = EVENTS.findIndex(x=>x.id===event.id);
-      EVENTS[index] = event;
+    searchSessions(searchTerm: string) {
+      return this.http.get(this.server + "/api/sessions/search?search=" + searchTerm).map((response: Response) =>{
+        return response.json();
+      });
     }
 
-    searchSessions(searchTerm: string) : Observable<ISession[]> {
-      var term = searchTerm.toLocaleLowerCase();
-      let subject = new Subject<ISession[]>();
-      let results : ISession[] = [];
-      setTimeout(()=>{
-          EVENTS.forEach(event => {
-            let matchingSessions = event.sessions.filter(session => 
-              session.name.toLocaleLowerCase().indexOf(term)>-1);
-            
-            matchingSessions = matchingSessions.map((session:any)=> {
-              session.eventId = event.id;
-              return session;
-            });
-            results = results.concat(matchingSessions);
-          });
-          subject.next(results);
-          subject.complete();
-                   
-      }, 100);
-
-      return subject;
-    }
     private handleError(error: Response){
       console.log('ERROR HBAPPPENED!')
         return Observable.throw(error.statusText);
