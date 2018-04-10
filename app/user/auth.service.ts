@@ -58,9 +58,10 @@ export class AuthService {
         }).subscribe();
     }
 
-    updateCurrentUser(firstName: string, lastName: string){
+    updateCurrentUser(firstName: string, lastName: string): Observable<Response>{
         this.currentUser.firstName = firstName;
         this.currentUser.lastName = lastName;
+        return this.http.put(this.server + '/api/users/' + this.currentUser._id, this.currentUser, this.options);
     }
 
     private handleError(error: Response){
