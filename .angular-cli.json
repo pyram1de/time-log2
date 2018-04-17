@@ -5,24 +5,24 @@
   },
   "apps": [
     {
-      "root": "",
+      "root": "src",
       "outDir": "dist",
       "assets": [
         "assets",
         "favicon.ico"
       ],
       "index": "index.html",
-      "main": "app/main.ts",
+      "main": "main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
-      "tsconfig": "tsconfig.json",
+      "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
         "styles.css",
-        "node_modules/toastr/build/toastr.min.css"
+        "../node_modules/toastr/build/toastr.min.css"
       ],
-      "scripts": ["node_modules/toastr/build/toastr.min.js"],
+      "scripts": ["../node_modules/toastr/build/toastr.min.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
