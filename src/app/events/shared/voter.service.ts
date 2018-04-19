@@ -21,7 +21,7 @@ export class VoterService {
           });
           let options = new RequestOptions({ headers: headers});
           let url = this.server +`/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`;
-          this.http.post(url, JSON.stringify({})).catch(this.handleError).subscribe();
+          this.http.post(url, {}, options).catch(this.handleError).subscribe();
 
         session.voters.push(voterName);
     }
